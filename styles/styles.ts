@@ -6,6 +6,12 @@ export const colors = {
 	backgroundColor: "#f5f5f5",
 };
 
+export const sizes = {
+	mobile: "360px",
+	tablet: "768px",
+	desktop: "1024px",
+};
+
 export const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
