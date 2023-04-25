@@ -9,7 +9,7 @@ const Layout = ({ children }: ILayoutProps) => {
 	return (
 		<>
 			<Navigation />
-			<main>{children}</main>
+			{children}
 		</>
 	);
 };

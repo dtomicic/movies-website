@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
 export const colors = {
 	primary: "#252525",
@@ -10,6 +10,22 @@ export const sizes = {
 	mobile: "360px",
 	tablet: "768px",
 	desktop: "1024px",
+};
+
+export const mixins = {
+	contentWide: css`
+		max-width: 320px;
+		margin: 0 auto;
+		width: 100%;
+
+		@media (min-width: ${sizes.tablet}) {
+			max-width: 600px;
+		}
+
+		@media (min-width: ${sizes.desktop}) {
+			max-width: 1440px;
+		}
+	`,
 };
 
 export const GlobalStyles = createGlobalStyle`
