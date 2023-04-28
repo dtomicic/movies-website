@@ -1,47 +1,55 @@
 import React from "react";
 import Banner from "@/components/Banner";
-import { ITrendingMovie, ITrendingShow } from "@/types/media.types";
+import { ITrending } from "@/types/media.types";
+import MovieList from "@/components/MovieList";
 
 interface IHomeProps {
-	dailyMovies: ITrendingMovie[];
-	weeklyMovies: ITrendingMovie[];
-	dailyShows: ITrendingShow[];
-	weeklyShows: ITrendingShow[];
+	movies: {
+		daily: ITrending[];
+		weekly: ITrending[];
+	};
+	shows: {
+		daily: ITrending[];
+		weekly: ITrending[];
+	};
 }
 
 export default function Home(props: IHomeProps) {
-	const { dailyMovies, weeklyMovies, dailyShows, weeklyShows } = props;
-	const [dailyTrendingMovies, setDailyTrendingMovies] = React.useState(dailyMovies);
-	const [weeklyTrendingMovies, setWeeklyTrendingMovies] = React.useState(weeklyMovies);
-	const [dailyTrendingShows, setDailyTrendingShows] = React.useState(dailyShows);
-	const [weeklyTrendingShows, setWeeklyTrendingShows] = React.useState(weeklyShows);
+	const { movies, shows } = props;
 
-	console.log(dailyTrendingMovies);
+	const [moviesList, setMoviesList] = React.useState(movies.daily.slice(0, 6));
+	const [showsList, setShowsList] = React.useState(shows.daily.slice(0, 6));
+
 	return (
 		<>
 			<Banner />
+			<MovieList media={showsList} />
 		</>
 	);
 }
 
 export async function getServerSideProps() {
 	const API_KEY = process.env.API_KEY;
-	
-	const dailyTrendingMovies = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`).then((res) => res.json());
-	const weeklyTrendingMovies = await fetch(`
-	https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`).then((res) => res.json());
+	const urls = [
+		`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`,
+		`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`,
+		`https://api.themoviedb.org/3/trending/tv/day?api_key=${API_KEY}`,
+		`https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}`,
+	];
 
-	const dailyTrendingShows = await fetch(`https://api.themoviedb.org/3/trending/tv/day?api_key=${API_KEY}`).then((res) => res.json());
-	const weeklyTrendingShows = await fetch(`
-	https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}`).then((res) => res.json());
-
+	const responses = await Promise.all(urls.map((url) => fetch(url)));
+	const data = await Promise.all(responses.map((res) => res.json()));
 
 	return {
 		props: {
-			dailyMovies: dailyTrendingMovies.results,
-			weeklyMovies: weeklyTrendingMovies.results,
-			dailyShows: dailyTrendingShows.results,
-			weeklyShows: weeklyTrendingShows.results,
-		}
-	}
+			movies: {
+				daily: data[0].results,
+				weekly: data[1].results,
+			},
+			shows: {
+				daily: data[2].results,
+				weekly: data[3].results,
+			},
+		},
+	};
 }
