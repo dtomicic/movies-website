@@ -1,32 +1,19 @@
 import React from "react";
 import Banner from "@/components/Banner";
-import { ITrending } from "@/types/media.types";
-import MovieList from "@/components/MovieList";
+import MainPage from "@/components/MainPage";
+import { IMedia } from "@/types/media.types";
 
-interface IHomeProps {
-	movies: {
-		daily: ITrending[];
-		weekly: ITrending[];
-	};
-	shows: {
-		daily: ITrending[];
-		weekly: ITrending[];
-	};
-}
 
-export default function Home(props: IHomeProps) {
-	const { movies, shows } = props;
 
-	const [moviesList, setMoviesList] = React.useState(movies.daily.slice(0, 6));
-	const [showsList, setShowsList] = React.useState(shows.daily.slice(0, 6));
-
+export default function Home(props: IMedia) {
 	return (
 		<>
 			<Banner />
-			<MovieList media={showsList} />
+			<MainPage {...props} />
 		</>
 	);
 }
+
 
 export async function getServerSideProps() {
 	const API_KEY = process.env.API_KEY;
@@ -53,3 +40,5 @@ export async function getServerSideProps() {
 		},
 	};
 }
+
+

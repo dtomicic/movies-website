@@ -3,13 +3,14 @@ import { SelectBoxStyled } from "./style";
 interface ISelectBoxProps {
     options: string[];
     onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    className?: string;
 }
 
 const SelectBox = (props: ISelectBoxProps) => {
-    const { options, onChange } = props;
+    const { options, onChange, className } = props;
 
     return (
-        <SelectBoxStyled>
+        <SelectBoxStyled className={className || ""}>
             <select onChange={onChange}>
                 {options.map((option, index) => (
                     <option key={index} value={option}>

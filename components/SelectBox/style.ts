@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const SelectBoxStyled = styled.div`
 	display: flex;
-	margin-top: 20px;
 	width: 100%;
 
 	select {

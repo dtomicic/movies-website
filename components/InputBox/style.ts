@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const InputBoxStyled = styled.form`
 	display: flex;
-	margin-top: 20px;
 	width: 100%;
 
 	div {
@@ -68,7 +67,7 @@ export const InputBoxStyled = styled.form`
                 }
             }
 
-            @media (min-width: ${sizes.tablet}) {
+            @media (min-width: ${sizes.desktop}) {
                 padding: 20px 65px;
                 font-size: 22px;
 
