@@ -4,3 +4,14 @@ export interface ITrending {
     overview: string;
     poster_path: string;
 }
+
+export interface IMedia {
+    movies: {
+        daily: ITrending[];
+        weekly: ITrending[];
+    }
+    shows: {
+        daily: ITrending[];
+        weekly: ITrending[];
+    }
+}
