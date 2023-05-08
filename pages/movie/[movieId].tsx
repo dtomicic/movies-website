@@ -1,6 +1,7 @@
 import { IMovie } from "@/types/media.types";
 import { GetServerSideProps } from "next";
 import DetailsPage from "@/components/DetailsPage";
+import Head from "next/head";
 
 interface IMovieDetailsProps {
     movie: IMovie;
@@ -9,7 +10,12 @@ interface IMovieDetailsProps {
 const MovieDetails = (props: IMovieDetailsProps) => {
     const { movie } = props;
     return (
+        <>
+        <Head>
+            <title>{movie.title} | Movie App</title>
+        </Head>
         <DetailsPage media={movie} />
+    </>
     );
 };
 

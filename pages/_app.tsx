@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					name="viewport"
 					content="width=device-width, initial-scale=1"
 				/>
-				<title>Movies website</title>
+				<title>Home | Movies app</title>
 			</Head>
 			<Layout>
 				<GlobalStyles />
