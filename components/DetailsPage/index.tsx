@@ -36,18 +36,18 @@ const DetailsPage = (props: IDetailsPageProps) => {
                             <span>Release Date:</span> {media.release_date}
                         </p>
                         <p>
-                            <span>Budget:</span> $
-                            {media.budget.toLocaleString()}
+                            <span>Budget:</span>{" "}
+                            {media.budget !== 0 ? '$' + media.budget.toLocaleString() : 'No data available'}
                         </p>
                         <p>
-                            <span>Revenue:</span> $
-                            {media.revenue.toLocaleString()}
+                            <span>Revenue:</span>{" "}
+                            {media.revenue !== 0 ? '$' + media.revenue.toLocaleString() : 'No data available'}
                         </p>
                         <p>
-                            <span>Runtime:</span> {media.runtime} minutes
+                            <span>Runtime:</span> {media.runtime} minute(s)
                         </p>
                         <p>
-                            <span>Description:</span> {media.overview}
+                            <span>Description:</span> {media.overview.trim().length > 0 ? media.overview : 'No data available'}
                         </p>
                     </div>
                 </div>
@@ -88,10 +88,10 @@ const DetailsPage = (props: IDetailsPageProps) => {
                         </p>
                         <p>
                             <span>Episode runtime:</span>{" "}
-                            {media.episode_run_time} minutes
+                            {media.episode_run_time.length > 0 ? media.episode_run_time[0] + ' minute(s)' : 'No data available'}
                         </p>
                         <p>
-                            <span>Description:</span> {media.overview}
+                            <span>Description:</span> {media.overview.trim().length > 0 ? media.overview : 'No data available'}
                         </p>
                     </div>
                 </div>

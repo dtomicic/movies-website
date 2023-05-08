@@ -4,6 +4,7 @@ import GoBack from "@/components/GoBack";
 import InputBox from "@/components/InputBox";
 import { SearchStyled } from "./style";
 import MediaList from "@/components/MediaList";
+import Head from "next/head";
 
 const Index = () => {
     const { movieName } = useRouter().query;
@@ -36,6 +37,9 @@ const Index = () => {
 
     return (
         <SearchStyled>
+            <Head>
+                <title>Search | Movie App</title>
+            </Head>
             <GoBack />
             <InputBox
                 type="text"
