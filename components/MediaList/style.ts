@@ -1,7 +1,7 @@
 import { mixins, sizes } from "@/styles/styles";
 import styled from "styled-components";
 
-export const MovieListStyled = styled.div`
+export const MediaListStyled = styled.div`
     ${mixins.contentWide};
     display: grid;
     grid-template-columns: repeat(2, 1fr);

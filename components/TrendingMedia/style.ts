@@ -4,18 +4,7 @@ import styled from "styled-components";
 export const TrendingMediaStyled = styled.section`
 	display: flex;
 	flex-direction: column;
-
-	.input-box {
-		width: 100%;
-
-		@media (min-width: ${sizes.tablet}) {
-			width: 65%;
-		}
-
-		@media (min-width: ${sizes.desktop}) {
-			width: 45%;
-		}
-	}
+	margin-bottom: 20px;
 
 	h3 {
 		margin: 30px 0 10px 0;
@@ -45,5 +34,9 @@ export const TrendingMediaStyled = styled.section`
 			width: 15%;
 			margin-bottom: 40px;
 		}
+	}
+
+	@media (min-width: ${sizes.tablet}) {
+		margin-bottom: 50px;
 	}
 `;

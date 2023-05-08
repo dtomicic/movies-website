@@ -1,15 +1,15 @@
 import { ITrending } from "@/types/media.types";
-import { MovieListStyled } from "./style";
+import { MediaListStyled } from "./style";
 import Image from "next/image";
 
-interface IMovieListProps {
+interface IMediaListProps {
 	media: ITrending[];
 }
 
-const MovieList = (props: IMovieListProps) => {
+const MediaList = (props: IMediaListProps) => {
 	const { media } = props;
 	return (
-		<MovieListStyled>
+		<MediaListStyled>
 			{media.map((item, index) => (
 				<div key={index}>
                     <div className="overlay">
@@ -25,8 +25,8 @@ const MovieList = (props: IMovieListProps) => {
 					/>
 				</div>
 			))}
-		</MovieListStyled>
+		</MediaListStyled>
 	);
 };
 
-export default MovieList;
+export default MediaList;

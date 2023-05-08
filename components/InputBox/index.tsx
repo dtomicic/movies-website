@@ -5,8 +5,8 @@ interface IInputBoxProps {
 	type: string;
 	placeholder?: string;
 	value?: string;
-	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 	className?: string;
 }
 
