@@ -16,7 +16,7 @@ export default function Home(props: IMedia) {
 
 
 export async function getServerSideProps() {
-	const API_KEY = process.env.API_KEY;
+	const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 	const urls = [
 		`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`,
 		`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`,
