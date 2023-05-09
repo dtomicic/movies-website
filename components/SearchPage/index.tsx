@@ -1,14 +1,19 @@
 import React from "react";
 import { useRouter } from "next/router";
-import GoBack from "@/components/GoBack";
-import InputBox from "@/components/InputBox";
-import { SearchStyled } from "./style";
-import MediaList from "@/components/MediaList";
-import Head from "next/head";
+import Head from "next/head"
+import GoBack from "../GoBack"
+import { SearchPageStyled } from "./style";
+import InputBox from "../InputBox";
+import MediaList from "../MediaList";
+import { ITrending } from "@/types/media.types";
 
-const Index = () => {
+interface ISearchPageProps {
+    media: ITrending[];
+}
+
+const SearchPage = (props: ISearchPageProps) => {
+    const { media } = props;
     const { movieName } = useRouter().query;
-    const [media, setMedia] = React.useState([]);
     const [search, setSearch] = React.useState("");
 
     const router = useRouter();
@@ -22,21 +27,8 @@ const Index = () => {
 		const preparedString = search.replace(/ /g, "-").toLowerCase();
 		router.push(`/search/${preparedString}`);
 	}
-
-
-    React.useEffect(() => {
-        const fetchMedia = async () => {
-            const response = await fetch(
-                `https://api.themoviedb.org/3/search/multi?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`
-            );
-            const data = await response.json();
-            setMedia(data.results.slice(0, 6));
-        };
-        fetchMedia();
-    }, [movieName]);
-
     return (
-        <SearchStyled>
+        <SearchPageStyled>
             <Head>
                 <title>Search | Movie App</title>
             </Head>
@@ -56,8 +48,8 @@ const Index = () => {
             <div className="results">
                 {media.length === 0 ? <h4>No results found</h4> : <MediaList media={media} />}
             </div>
-        </SearchStyled>
+        </SearchPageStyled>
     );
 };
 
-export default Index;
+export default SearchPage;
