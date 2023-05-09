@@ -1,7 +1,7 @@
-import { mixins, sizes } from "@/styles/styles";
 import styled from "styled-components";
+import { mixins, sizes } from "@/styles/styles";
 
-export const SearchStyled = styled.div`
+export const SearchPageStyled = styled.div`
     ${mixins.contentWide};
     display: flex;
     flex-direction: column;
