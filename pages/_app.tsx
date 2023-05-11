@@ -7,11 +7,11 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
+				<title>Home | Movies app</title>
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1"
 				/>
-				<title>Home | Movies app</title>
 			</Head>
 			<Layout>
 				<GlobalStyles />
