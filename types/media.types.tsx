@@ -18,6 +18,7 @@ export interface IMovie {
     overview: string;
     poster_path: string;
     media_type: string;
+    id: number;
 }
 
 export interface IShow {
@@ -31,6 +32,7 @@ export interface IShow {
     poster_path: string;
     media_type: string;
     name: string;
+    id: number;
 }
 
 export interface IMedia {
