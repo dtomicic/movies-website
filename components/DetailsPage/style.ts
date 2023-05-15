@@ -52,6 +52,17 @@ export const DetailsPageStyled = styled.div`
         }
     }
 
+    .related-media {
+        margin-top: 50px;
+        margin-bottom: 30px;
+
+        h2 {
+            font-size: 26px;
+            font-family: "Montserrat", sans-serif;
+            margin-bottom: 20px;
+        }
+    }
+
     @media (min-width: ${sizes.tablet}) {
         margin-top: 60px;
 

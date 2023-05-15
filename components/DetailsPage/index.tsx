@@ -1,14 +1,16 @@
 import Image from "next/image";
 import GoBack from "../GoBack";
 import { DetailsPageStyled } from "./style";
-import { IMovie, IShow } from "@/types/media.types";
+import { IMovie, IShow, ITrending } from "@/types/media.types";
+import MediaList from "../MediaList";
 
 interface IDetailsPageProps {
     media: IMovie | IShow;
+    relatedMedia: ITrending[];
 }
 
 const DetailsPage = (props: IDetailsPageProps) => {
-    const { media } = props;
+    const { media, relatedMedia } = props;
 
     if ("title" in media) {
         return (
@@ -50,6 +52,10 @@ const DetailsPage = (props: IDetailsPageProps) => {
                             <span>Description:</span> {media.overview.trim().length > 0 ? media.overview : 'No data available'}
                         </p>
                     </div>
+                </div>
+                <div className="related-media">
+                    <h2>Similar Movies</h2>
+                    <MediaList media={relatedMedia} />
                 </div>
             </DetailsPageStyled>
         );
@@ -94,6 +100,10 @@ const DetailsPage = (props: IDetailsPageProps) => {
                             <span>Description:</span> {media.overview.trim().length > 0 ? media.overview : 'No data available'}
                         </p>
                     </div>
+                </div>
+                <div className="related-media">
+                    <h2>Similar Shows</h2>
+                    <MediaList media={relatedMedia} />
                 </div>
             </DetailsPageStyled>
         );
