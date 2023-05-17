@@ -19,7 +19,9 @@ This project is a movie database website built with TypeScript, Next.js, and Sty
 
 ## Features
 - **Trending Movies and TV Shows**: The website fetches data from the Movie Database API to display a list of trending movies and TV shows. Users can explore popular content in real-time.
+
 - **Search Functionality**: Users can search for movies or TV shows by entering keywords in the search bar. The website communicates with the Movie Database API to fetch search results and display them to the user.
+
 - **Movie/TV Show Details**: When a user selects a movie or TV show from the search results or trending list, they can view detailed information about it, including the title, overview, release date, runtime, budget, and more. Additionally, the website displays the movie's or TV show's poster.
 
 ## Technologies used
