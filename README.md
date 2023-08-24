@@ -10,7 +10,6 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies used](#technologies-used)
-- [Live preview](#live-preview)
 
 
 
@@ -28,6 +27,3 @@ This project is a movie database website built with TypeScript, Next.js, and Sty
 - Next.js
 - Typescript
 - styled-components
-
-# Live preview 
-[Click for live preview](https://movies-website-roan.vercel.app/)
